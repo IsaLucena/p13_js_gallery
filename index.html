@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>p11_gallery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+$(document).ready(function(){
+    $('.next').on('click', function(){
+        var currentImg = $('.active');
+        var nextImg = currentImg.next();
+
+        if(nextImg.length){
+            currentImg.removeClass('active').css('z-index',-10);
+            nextImg.addClass('active').css('z-index', 10);
+        }
+    });
+    $('.prev').on('click', function(){
+        var currentImg = $('.active');
+        var prevImg = currentImg.prev();
+
+        if(prevImg.length){
+            currentImg.removeClass('active').css('z-index',-10);
+            prevImg.addClass('active').css('z-index', 10);
+        }
+    });
+   
+ 
+   
+
+});
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: 'Press Start 2P', cursive;
+            background-color: rgb(255, 0, 149);
+            color: rgb(255, 208, 0);
+        }
+        img{
+            width: 100%;
+            height: auto;
+        }
+        .container{
+            width: 540px;
+            overflow: auto;
+            margin: 40px auto;
+        }
+        .slider-inner{
+            width: 500px;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            float: left;
+            padding: 3px;
+            border: 1px solid rgb(255, 0, 149);
+        }
+        .slider-inner img{
+            display: none;
+            width: 500px;
+            height: 300px;
+        }
+        .slider-inner img.active{
+            display: inline-block;
+        }
+        .prev,.next{
+            color: rgb(255, 0, 149);
+            cursor: pointer;
+            margin-top: 130px;
+            padding: 20px;
+            background-color: rgb(255, 208, 0);
+            z-index: 100;
+        }
+        .prev{
+            position: absolute;
+            margin-left: -15px;
+            
+        }
+        .next{
+            position: absolute;
+            margin-left: -80px;
+            
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>JS Gallery</h1>
+        <div class="slider-outer">
+            <i class="prev" alt="Prev">prev</i>
+            <div class="slider-inner">
+                <img src="img/img1.jpg" alt="un" class="active">
+                <img src="img/img2.jpg" alt="dos">
+                <img src="img/img3.jpg" alt="tres">
+                <img src="img/img4.jpg" alt="quatre">
+            </div>
+            <i class="next" alt="Next">next</i>
+        </div>
+    </div>
+</body>
+</html>
